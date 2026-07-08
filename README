@@ -5,13 +5,19 @@ Please see the corresponding sections below for details.
 Dependencies
 ============
 
-  Under AGL UCB 16 (Prickly Pike).
+
+```
+core                  openembedded-core/meta
+yoctobsp              meta-yocto/meta-yocto-bsp
+yocto                 meta-yocto/meta-poky
+meta-cip-kernel       meta-cip-kernel
+```
 
 Patches or Issues
 =======
 
-- Please submit any patches or issues against the meta-cip-kernel layer on the github,
-  Not to mail AGL mailing lists.
+- Please submit any patches or issues against the meta-cip-kernel layer on the github.
+  Not to mail any mailing lists.
 
 Table of Contents
 =================
@@ -22,7 +28,7 @@ Table of Contents
 I. Adding the meta-cip-kernel layer to your build
 =================================================
 
-Run 'bitbake-layers add-layer meta-cip-kernel' within AGL build environment.
+Run 'bitbake-layers add-layer meta-cip-kernel' within your build environment.
 
 II. Misc
 ========
