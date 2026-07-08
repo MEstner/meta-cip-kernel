@@ -1,7 +1,7 @@
-# Copyright (C) 2023 Hirotaka Motai <hirotaka.motai@miraclelinux.com>
+# Copyright (C) 2026 Hirotaka Motai <hirotaka.motai@miraclelinux.com>
 # Released under the MIT license (see COPYING.MIT for the terms)
 
-SUMMARY = "An example kernel recipe that uses the linux-yocto and oe-core"
+SUMMARY = "An example kernel recipe that uses the linux-cip"
 # linux-yocto-custom.bb:
 #
 #   kernel classes to apply a subset of yocto kernel management to git
@@ -57,24 +57,24 @@ require recipes-kernel/linux/linux-yocto.inc
 
 SRC_URI += " \
     git://git.kernel.org/pub/scm/linux/kernel/git/cip/linux-cip.git;branch=${LINUX_CIP_BRANCH};protocol=https \
-    git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=${LINUX_CIP_KMETA_BRANCH};destsuffix=${KMETA} \
+    git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=${LINUX_CIP_KMETA_BRANCH};destsuffix=${KMETA};protocol=https \
     "
 
-LINUX_VERSION = "6.1.59"
-LINUX_VERSION_EXTENSION:append = "-cip8"
-LINUX_CIP_BRANCH ?= "linux-6.1.y-cip"
+LINUX_VERSION = "6.12.94"
+LINUX_VERSION_EXTENSION:append = "-cip26"
+LINUX_CIP_BRANCH ?= "linux-6.12.y-cip"
 
-LINUX_CIP_KMETA_BRANCH = "yocto-6.1"
-SRCREV_meta = "a7bfe6ed5d665b094b3e2d30c4cd94dece2c75f3"
+LINUX_CIP_KMETA_BRANCH = "yocto-6.12"
+SRCREV_meta = "01498af34f6fe82c08fa6eae50a7eff1904a3968"
 KMETA = "kernel-meta"
 
 SRC_URI:append:qemux86-64 = " \
     file://qemu-x86_64-amdgpu.cfg \
     "
 
-SRCREV = "5ac26de5cee674d669fd90d11fb844eaf356ec9c"
+SRCREV = "5ff8c31327ef74b3d242e05452935ef6c6fea3d6"
 
-PV = "${LINUX_VERSION}-cip8"
+PV = "${LINUX_VERSION}-cip26"
 
 # Override COMPATIBLE_MACHINE to include your machine in a copy of this recipe
 # file. Leaving it empty here ensures an early explicit build failure.
